@@ -11,7 +11,7 @@
 	maxPagesDisplayed => 5,									# Maximum number of pages displayed at the bottom
 	metaRevisitAfter => 1,									# This is for search Engines... How often will they check for updates, in days
 	metaDescription => 'My Blog',			# Also for search engines
-	metaKeywords => 'blog, posts, pplog',					# Also for search engines...
+	metaKeywords => 'blog, posts, pplog, pBlog',					# Also for search engines...
 	textAreaCols => 50,										# Cols of the textarea to add and edit entries
 	textAreaRows => 10,										# Rows of the textarea to add and edit entries
 	config_ipBan => {202.325.35.145, 165.265.26.65},				# 2 random IPS, sorry if it is yours... Just edit this, separate ips with spaces
@@ -42,9 +42,9 @@
 	commentsPerPage => 20,									# How many comments will be shown per page
 	showGmtOnFooter => 1,									# Display GMT on footer
 	securityQuestionOnComments => 1,							# Allow the option to display a question which users have to answer in order to post comments
-	commentsSecurityQuestion => 'What  is a cool drink?',	# You shall change it, choose a question all your users will know
-	commentsSecurityAnswer => 'whiskey',						# Answer of the security question. The comparison will be CaSe InSeNsItIvE
-	randomString => 'zjhd092nmsbd20dbJASDK1BFGAB1',			# This is for password encryption... Edit if you want
+	commentsSecurityQuestion => 'A tasty snack?',	# You shall change it, choose a question all your users will know
+	commentsSecurityAnswer => 'apple',						# Answer of the security question. The comparison will be CaSe InSeNsItIvE
+	randomString => 'zasdfasdflkjasdifasdfsadgf',			# This is for password encryption... Edit if you want
 	entriesOnRSS => 20,									# 0 => ALL ENTRIES, if you want a limit, change this
 	useHtmlOnEntries => 0,									# Allow HTML on entries when making a new post (THIS WILL DISALLOW BBCODE!!)
 	useWYSIWYG => 0,											# You must allow HTML on entries for this to work // Note, WYSIWYG wont allow smilies

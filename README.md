@@ -1,5 +1,5 @@
 # Overview
-[![screenshot](https://github.com/escapecode/pBlog/blob/master/screenshots/blog01.jpg)](https://raw.github.com/wiki/escapecode/pBlog/blob/master/screenshots/blog01.jpg)
+[![screenshot](https://github.com/escapecode/pBlog/blob/master/screenshots/blog00.jpg)](https://raw.github.com/wiki/escapecode/pBlog/blob/master/screenshots/blog00.jpg)
 
 pBlog is a tiny Blog system which originated from PPLOG (which appears to be defunct).  Use pBlog the same way you use Blogger, Blogspot, Reddit, etc.  Since pBlog runs on your web server, you can restrict access to your blog including if you want it visible on the internet.
 
@@ -7,11 +7,13 @@ pBlog is a tiny Blog system which originated from PPLOG (which appears to be def
 Web server that can handle Perl CGI
 
 # Quickstart
+[![screenshot](https://github.com/escapecode/pBlog/blob/master/screenshots/blog01.jpg)](https://raw.github.com/wiki/escapecode/pBlog/blob/master/screenshots/blog01.jpg)
+
 1. Download the source and put the contents in a location accessible by your web server's Perl interface
-- Modify app/config.pl to your liking (make sure to change adminPass)
-- Modify about_me.html to your liking
-- In a web browser, navigate to the path where index.pl is located
-- After bringing up pBlog in a browser, use it's help system to start adding blog posts
+2. Modify app/config.pl to your liking (make sure to change adminPass)
+3. Modify about_me.html to your liking
+4. In a web browser, navigate to the path where index.pl is located
+5. After bringing up pBlog in a browser, use it's help system to start adding blog posts
 
 # License
 
