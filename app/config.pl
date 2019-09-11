@@ -3,8 +3,8 @@
 	adminPass => 'woofwoof',								# Admin password for adding entries
 	smiliesFolder => 'app/media/smilies',								# Path to smilies, if you dont want smilies, just, dont upload that folder
 	smiliesFolderName => 'smilies',												# Smilies Folder Name, you should NOT change this...
-	postsDatabaseFolder => '/root/http/blog/posts',							# Name of the folder where entries will be saved. If you cant create entries with this path, try /home/www/user/posts
-	commentsDatabaseFolder => '/root/http/blog/comments',						# Name of the folder where entries will be saved. If you cant create entries with this path, try /home/www/user/posts
+	postsDatabaseFolder => './posts',							# Name of the folder where entries will be saved. If you cant create entries with this path, try /home/www/user/posts
+	commentsDatabaseFolder => './comments',						# Name of the folder where entries will be saved. If you cant create entries with this path, try /home/www/user/posts
 	dbFilesExtension => 'ppl',								# Extension of the files used as databases
 	currentStyleFolder => 'app',								# Styles folder (. => in the same path as ths file)
 	entriesPerPage => 10,										# For pagination... How many entries will be displayed per page?
