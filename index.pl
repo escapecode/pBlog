@@ -465,7 +465,7 @@ foreach(@pages)
 	print '<a href="?viewDetailed='.$fileName.'">'.$title.'</a>';
 }
 
-print '<h1><center>Post Categories</center></h1>';			# Show Categories on Menu	THIS IS THE MENU SECTION
+print '<h1><center>Categories</center></h1>';			# Show Categories on Menu	THIS IS THE MENU SECTION
 my @categories = sort(getCategories());
 foreach(@categories)
 {
@@ -506,7 +506,7 @@ if($config->{allowCustomHTML} == 1)
 }
 print '<hr />
 <a href=?do=archive style="float: left;">Archived Posts</a>
-<a href="?do=RSS" style="float: right;"><img src="app/media/rss.svg" alt="RSS feed link" width="25px;" /></a>
+<a href="?do=RSS" style="float: right;"><img src="app/media/rss.svg" title="RSS feed link" width="25px;" /></a>
 <br style="clear: both;" />
 <hr />';
 
