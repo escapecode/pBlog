@@ -39,27 +39,24 @@
 			<span onclick="showArticle('features');">Features</span><br />
 			<span onclick="showArticle('blog_accessibility');">Blog Accessibility</span><br />
 			<span onclick="showArticle('adding_images');">Adding Images</span><br />
+			<span onclick="showArticle('sharing_to_reddit');">Sharing to Reddit</span><br />
 			<span onclick="showArticle('markup');">Markup Syntax</span><br />
 		</aside>
 		<article id='intro'>
-			example
 			<h4>What is a Blog</h4>
 			<p>
-				<b><i>Blog</i></b> is short for "<i>web log</i>" and is a way to write about, journal, etc. on any topic.  Blogs are accessible via web browsers, and you can restrict who can read your blog.
+				<b><i>Blog</i></b> is short for "<i>web log</i>" and is a way to discuss, journal, write about, etc. on any topic or topics.  If you have used Facebook, Blogger, Blogspot, etc., then you have background in blogging.
 			</p>
 			<h4>Why blog</h4>
 			<p>
-				Personal blogs can be used to showcase what is going on in your life, details of a trip, progression of a project, etc.
+				Personal blogs can be used to showcase/share what is going on in your life, details of a trip, progression of a project, food recipes, etc.
 			</p>
 			<h4>How are Blogs accessed</h4>
 			<p>
-				 You can share your blog posts for friends or the public to see (such as a blog on a trip you took), or keep your blogs private for yourself (such as a personal journal or diary)
-
-
+				Blogs are accessible via web browsers, and you can restrict who can read and write to your blog.  For example, you can share your blog posts for friends or the public to see (such as a blog on a trip you took), or keep your blogs private for yourself (such as a personal journal or diary)
+				 <br />
 				 This blogging system (that you are currently using) runs on a web server, accessible via a browser.  Changing your web browser's settings can change who has access to your blogging system.
 			</p>
-
-			image upload blog sync
 		</article>
 		<article id='features'>
 			<ul>
@@ -72,7 +69,7 @@
 				<li>Add 'headline' pages, that appear on the menu, but not as a post</li>
 				<li>Login for users who post comments</li>
 				<li>RSS feed dynamically created</li>
-				<li>WYSIWYG post entry</li>
+				<li>WYSIWYG post entry (partially)</li>
 				<li>capcha</li>
 			</ul>
 		</article>
@@ -93,9 +90,6 @@
 			<center><img src='app/media/raspberry_pi_zero.jpg' /></center>
 			<!-- https://pxhere.com/en/photo/1265058 -->
 			<p>Another method would be to install pBlog on a webserver running on a Rasberry Pi</p>
-			<h4>Reddit</h4>
-			<p>
-				If the "Post to Reddit" feature is activated, a link will be visible on the side menu called "Post Current to Reddit".  Clicking on this lnk will send the URL of the page you are currently viewing on your blog, to Reddit.  For Reddit to accept your Blog URL, Reddit will require you to login and answer some questions pertaining to the URL you are sending Reddit.  After filling out the Reddit qeustions and clicking submit, Reddit, will add your blog content to it's system.
 			</p>
 		</article>
 		<article id='adding_images'>
@@ -106,6 +100,12 @@
 			<i>media/example.jpg</i>
 			<br />
 			Note that images must not have spaces in their names.
+		</article>
+		<article id='sharing_to_reddit'>
+			<h3>Sharing pBlog posts on Reddit</h3>
+			<h4>Reddit</h4>
+			<p>
+				If this pBlog is accessible by others over the internet and the "Post to Reddit" feature is activated in your config.pl file, you can interact with Reddit, passing it the link to a post in your pBlog.  In pBlog find a post to share.  A link will be visible on the side menu called "Post Current to Reddit".  Clicking on this lnk will send the URL of the page you are currently viewing on your blog, to Reddit.  For Reddit to accept your Blog URL, Reddit will require you to login and answer some questions pertaining to the URL you are sending Reddit.  After filling out the Reddit qeustions and clicking submit, Reddit, will add your blog content to it's system.
 		</article>
 		<article id='markup'>
 			<h3>Markup Language</h3>
