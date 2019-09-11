@@ -2,7 +2,7 @@
 	blogTitle => 'My Blog',								# Blog title
 	adminPass => 'woofwoof',								# Admin password for adding entries
 	smiliesFolder => 'app/media/smilies',								# Path to smilies, if you dont want smilies, just, dont upload that folder
-	smiliesFolderName => 'smilies',												# Smilies Folder Name, you should NOT change this...
+	smiliesFolderName => 'app/media/smilies',												# Smilies Folder Name, you should NOT change this...
 	postsDatabaseFolder => './posts',							# Name of the folder where entries will be saved. If you cant create entries with this path, try /home/www/user/posts
 	commentsDatabaseFolder => './comments',						# Name of the folder where entries will be saved. If you cant create entries with this path, try /home/www/user/posts
 	dbFilesExtension => 'ppl',								# Extension of the files used as databases

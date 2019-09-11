@@ -1,5 +1,5 @@
 /****************************************
-*	This is the style sheet of pBlog	*
+*	This is the style sheet of PPLOG	*
 *	Edit this as you wish.				*
 *	Designed by Federico Ramírez		*
 *	A.K.A fedekun						*
@@ -14,7 +14,7 @@
 body {
 	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 	/*font-size: 12px;*/
-	color: #222222;
+	color: black;
 	background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* ff3.6+ */
 	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(96,123,150,1))); /* safari4+,chrome */
 	background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* safari5.1+,chrome10+ */
@@ -45,7 +45,7 @@ div#top {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#607b96',GradientType=0 ); /* ie6-9 */
 }
 div#top a {
-	color: #202020;
+	color: white;
 }
 
 table {
@@ -81,12 +81,16 @@ div#all {
 
 div#menu {
 	float: left;
-	padding-left: 10px;
+	padding-left: 2px;
+	padding-right: 2px;
 	width: 10em;
 	letter-spacing: -1px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	background-color: silver;
+	margin-top: 1em;
+	margin-left: .5em;
 }
 
 #menu h1 {
@@ -214,7 +218,7 @@ div.comment > span {
 	border : 1px solid black;
 	border-radius : 10px;
 	padding : 1em;
-	background-color : lightyellow;
+	background-color: silver;
 }
 
 .comment {

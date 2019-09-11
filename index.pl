@@ -594,12 +594,12 @@ elsif(r('process') eq 'doNewEntry')
 			</tr>';
 		print '<tr><td>Content<br />(You can use BBCODE)<br />
 			<!-- <a href="?do=showSmilies" target="_blank">Show Smilies</a><br />-->
-			<img src="smilies/worried.gif">:worried:<br />
-			<img src="smilies/n_n.png">:n_n:<br />
-			<img src="smilies/happy.gif">:happy:<br />
-			<img src="smilies/doh.gif">:doh:<br />
-			<img src="smilies/cry.png">:cry:<br />
-			<img src="smilies/cool.gif">:cool:
+			<img src="' . $config->{smiliesFolder} . '/worried.gif">:worried:<br />
+			<img src="' . $config->{smiliesFolder} . '/n_n.png">:n_n:<br />
+			<img src="' . $config->{smiliesFolder} . '/happy.gif">:happy:<br />
+			<img src="' . $config->{smiliesFolder} . '/doh.gif">:doh:<br />
+			<img src="' . $config->{smiliesFolder} . '/cry.png">:cry:<br />
+			<img src="' . $config->{smiliesFolder} . '/cool.gif">:cool:
 		</td>';
 		}
 		else
