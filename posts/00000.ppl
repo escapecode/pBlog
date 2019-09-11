@@ -1,4 +1,4 @@
-<center>Welcome to <b>PPLOG</b>"</center>
+<center>Welcome to <b>pBlog</b>"</center>
 ...a tiny, personal blog system. To learn more about blogging or how to use this blog system, please refer to the menu option <a href=help.html>Help</a>.
 <br /><br />
 To add and edit posts, <b>the default admin password is <i>'woofwoof'</i></b>. You can change this password and other settings by editing the <i>index.pl</i> file on your web server that is bringing up this page

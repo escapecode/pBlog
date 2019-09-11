@@ -1,14 +1,14 @@
 #!/usr/bin/perl -U
 
 #####################################################
-# 	PPLOG (Perl Powered Blog)						#
+# 	pBlog						#
 #	The idea of this blog, is a very simple yet		#
 #	powerful blog. Enjoy.							#
 #													#
 #	Coded by Federico Ramírez (fedekun)				#
 #	fedekiller@gmail.com							#
 #													#
-#	PPLOG uses the GNU Public Licence v3			#
+#	pBlog uses the GNU Public Licence v3			#
 #	http://www.opensource.org/licenses/gpl-3.0.html	#
 #													#
 #	Powered by YAGNI (You Ain't Gonna Need It)		#
@@ -1366,8 +1366,8 @@ elsif(r('sendComment') ne '')
 					my $content = "Hello, i am sending this mail beacuse $author commented on your blog: http://".$ENV{'HTTP_HOST'}.$ENV{'REQUEST_URI'}."\nTitle: $title\nComment: $content\nDate: $date\n\nRemember you can disallow this option changing the ".'$config->{sendMailWithNewComment} Variable to 0';
 					open (MAIL,"|/usr/lib/sendmail -t");
 					print MAIL "To: $config->{sendMailWithNewCommentMail}\n";
-					print MAIL "From: PPLOG \n";
-					print MAIL "Subject: New Comment on your PPLOG Blog\n\n";
+					print MAIL "From: pBlog \n";
+					print MAIL "Subject: New Comment on your pBlog\n\n";
 					print MAIL $content;
 					close(MAIL);
 				}
@@ -1798,5 +1798,5 @@ else
 	}
 }
 my $year = 1900 + (localtime)[5];
-print '</div><div id="footer">Copyright '.$config->{blogTitle}.' '.$year.' - All Rights Reserved - Powered by <a href="http://pplog.infogami.com/">PPLOG</a>'; print '<br>All posts are using GMT '.$config->{gmt} if $config->{showGmtOnFooter} == 1; print '</div></div></body></html>';
+print '</div><div id="footer">Copyright '.$config->{blogTitle}.' '.$year.' - All Rights Reserved - Powered by <a href="https://github.com/escapecode/pBlog">pBlog</a>'; print '<br>All posts are using GMT '.$config->{gmt} if $config->{showGmtOnFooter} == 1; print '</div></div></body></html>';
 }
