@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<link href="app/style.css" rel="stylesheet" type="text/css">
+
+		<style>
+			aside {
+				width: 10em;
+				float: left;
+			}
+			aside span {
+				cursor: pointer;
+				color : blue;
+			}
+			article {
+				float: left;
+				max-width: calc(100% - 11em);
+			}
+		</style>
+
+		<script>
+			function showArticle(a) {
+				divs = document.getElementsByTagName('article');
+				for (var i = 0; i < divs.length; i++) {
+				  divs[i].style.display = 'none';
+				}
+
+				document.getElementById(a).style.display = 'block';
+			}
+					</script>
+	</head>
+	<body>
+		<div id="top">
+			<img src="app/media/logo.png" style="position: absolute; left: 0;"> <a href="index.pl?page=1" style="padding-left: 200px;"><button>&lt; Back to Blog System</button></a>
+			<h2><center>About Me</center></h2>
+		</div>
+		<aside>
+			<h3>Menu</h3>
+			<span onclick="showArticle('intro');">About Me</span><br />
+			<span onclick="showArticle('interests');">My Interests</span><br />
+			<span onclick="showArticle('blog_purpose');">Purpose of Blog</span><br />
+		</aside>
+		<article id='intro'>
+			<h4>About Me</h4>
+			<p>
+				I am awesome
+			</p>
+		</article>
+
+		<article id='interests'>
+			<h4>My Interests</h4>
+			<p>
+				lots of things
+			</p>
+		</article>
+
+		<article id='blog_purpose'>
+			<h4>Blog Purpose</h4>
+			<p>
+				blog
+			</p>
+		</article>
+
+		<script>
+			showArticle('intro');
+		</script>
+	</body>
+</html>

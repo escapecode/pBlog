@@ -1,0 +1,238 @@
+/****************************************
+*	This is the style sheet of PPLOG	*
+*	Edit this as you wish.				*
+*	Designed by Federico Ramírez		*
+*	A.K.A fedekun						*
+****************************************/
+
+#menubar {
+ position:absolute;
+ left:0px;
+ top:2px;
+}
+
+body {
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	/*font-size: 12px;*/
+	color: #222222;
+	background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(96,123,150,1))); /* safari4+,chrome */
+	background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* ie10+ */
+	background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#607B96', endColorstr='#FFFFFF',GradientType=1 ); /* ie6-9 */
+}
+
+h3, h2 {
+	margin-left: 1em;
+}
+
+div#top {
+/*
+	position: absolute;
+*/
+	width: 100%;
+	left: 0;
+	vertical-align: top;
+	height: 6em;
+	background: -moz-linear-gradient(90deg, rgba(96,123,150,1) 0%, rgba(96,123,150,0.92) 8%, rgba(255,255,255,0) 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(92%, rgba(96,123,150,0.92)), color-stop(100%, rgba(96,123,150,1))); /* safari4+,chrome */
+	background: -webkit-linear-gradient(90deg, rgba(96,123,150,1) 0%, rgba(96,123,150,0.92) 8%, rgba(255,255,255,0) 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(90deg, rgba(96,123,150,1) 0%, rgba(96,123,150,0.92) 8%, rgba(255,255,255,0) 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(90deg, rgba(96,123,150,1) 0%, rgba(96,123,150,0.92) 8%, rgba(255,255,255,0) 100%); /* ie10+ */
+	background: linear-gradient(0deg, rgba(96,123,150,1) 0%, rgba(96,123,150,0.92) 8%, rgba(255,255,255,0) 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#607b96',GradientType=0 ); /* ie6-9 */
+}
+div#top a {
+	color: #202020;
+}
+
+table {
+	font-size: 12px;
+}
+
+input, button, textarea, select, radio {
+	padding: 2px;
+	border: 1px solid #8FB236;
+	color: #2542BE;
+	/* background-color: white; */
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	/*font-size: 12px;*/
+}
+
+div#all {
+	margin: auto;
+/*
+	background-image:url('media/logo.png');
+	background-repeat: no-repeat;
+*/
+	/*BK background-position: center top; */
+	/* background-color: white; */
+	/* border-top: 1px dashed silver;
+	border-left: 1px dashed silver;
+	border-right: 1px dashed silver; */
+}
+
+*::-moz-selection {
+	background-color:#8FB236;
+	color: white;
+}
+
+div#menu {
+	float: left;
+	padding-left: 10px;
+	width: 10em;
+	letter-spacing: -1px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#menu h1 {
+	color: #5C5C5C;
+	padding: 0px;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-size: 16px;
+	text-transform: capitalize;
+}
+
+#menu a {
+	display: block;
+	color: #5C5C5C;
+	text-transform: capitalize;
+	padding-left: 5px;
+	/* text-decoration: none; */
+}
+
+#menu a:hover {
+	padding-left: 7px;
+}
+
+div#content {
+	width: 80%;
+	/* border-left: 1px dashed silver; */
+	padding-left: 11em;
+	min-height: 600px;
+}
+
+#content h1 {
+	font-size: 16px;
+	/* border-bottom: 1px solid darkblue; */
+	margin-bottom: 5px;
+	padding: 0px;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+	text-align : center;
+	padding-bottom : .5em;
+}
+
+#content a {
+	color: #24245a;
+	/* text-decoration: none; */
+	font-weight: bold;
+}
+
+div.post {
+	padding : 1em;
+	margin : 1em;
+	background-color: white;
+	border : 1px solid black;
+	border-radius : 10px;
+}
+div.post > i{
+	text-transform: capitalize;
+}
+
+div#content img {
+	display : block;
+	margin :0 auto;
+}
+
+div#footer {
+	clear: both;
+	text-align: center;
+	font-size: 11px;
+	color: #666666;
+	padding-top: 15px;
+	letter-spacing: 2px;
+}
+
+#footer a {
+	color: black;
+	/* text-decoration: none; */
+	letter-spacing: -1px;
+}
+
+.code {
+	border: 1px solid silver;
+	background-color: #F1F1F1;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #111111;
+	font-size: 12px;
+	padding: 2px;
+	margin: 2px;
+	line-height: 5px;
+	height: 200px;
+	overflow: scroll;
+}
+
+.postinfo {
+	margin-left : 2em;
+}
+
+.right {
+	text-align : right;
+}
+
+.postinfo > i, .comment > i {
+	font-size	: .8em;
+	/* text-align : right; */
+}
+
+div.comment > span {
+	text-transform: capitalize;
+}
+
+.topbar {
+	position : absolute;
+	top : 10px;
+	right : 10px;
+	text-align : right;
+}
+
+.postinfo > span, .comment > span {
+	margin-left : 2em;
+	font-size : 1.1em;
+}
+
+.comment, .addcomment {
+	border : 1px solid black;
+	border-radius : 10px;
+	padding : 1em;
+	background-color : lightyellow;
+}
+
+.comment {
+	background-color : lavender;
+}
+
+.addcomment {
+	float : right;
+	width : 500px;
+}
+
+.quote {
+	border: 1px solid silver;
+	padding: 2px;
+	margin: 2px;
+}
+
+@media all and (max-width: 700px) {
+    div#top h2 {
+		position: absolute;
+		right: 0;
+		padding-top: 1em;
+    }
+}
