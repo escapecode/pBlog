@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<link href="app/style.css" rel="stylesheet" type="text/css">
+		<link rel='shortcut icon' 				type='image/png' href='favicon.png' />
 
 		<style>
 			aside {
@@ -37,43 +38,52 @@
 			<h3>Menu</h3>
 			<span onclick="showArticle('intro');">Overview</span><br />
 			<span onclick="showArticle('features');">Features</span><br />
-			<span onclick="showArticle('blog_accessibility');">Blog Accessibility</span><br />
+			<span onclick="showArticle('remote_access');">Remote Access</span><br />
 			<span onclick="showArticle('adding_images');">Adding Images</span><br />
-			<span onclick="showArticle('sharing_to_reddit');">Sharing to Reddit</span><br />
-			<span onclick="showArticle('markup');">Markup Syntax</span><br />
 		</aside>
 		<article id='intro'>
 			<h4>What is a Blog</h4>
 			<p>
-				<b><i>Blog</i></b> is short for "<i>web log</i>" and is a way to discuss, journal, write about, etc. on any topic or topics.  If you have used Facebook, Blogger, Blogspot, etc., then you have background in blogging.
+				<i>Blog</i> is short for "<i>web log</i>" and is a way to write about, journal, etc. on any topic.  Blogs are accessible with a web browser.
 			</p>
 			<h4>Why blog</h4>
 			<p>
-				Personal blogs can be used to showcase/share what is going on in your life, details of a trip, progression of a project, food recipes, etc.
+				Personal blogs can be used to showcase what is going on in your life, detail your trips, show progression of a project, etc.
 			</p>
 			<h4>How are Blogs accessed</h4>
 			<p>
-				Blogs are accessible via web browsers, and you can restrict who can read and write to your blog.  For example, you can share your blog posts for friends or the public to see (such as a blog on a trip you took), or keep your blogs private for yourself (such as a personal journal or diary)
-				 <br />
-				 This blogging system (that you are currently using) runs on a web server, accessible via a browser.  Changing your web browser's settings can change who has access to your blogging system.
+				 You can share your blog posts for friends or the public to see (such as a blog on a trip you took), or keep your blogs private for yourself (such as a personal journal or diary)
+
+				 This blogging system (that you are currently using) runs on a web server, accessible via a browser.  Changing your firewall and web server's settings can change who has access to your blogging system.
+			</p>
+			<h4>What are archives</h4>
+			<p>
+				Entries that are older than 1 year are said to be archived
+			</p>
+			<h4>Access via RSS</h4>
+			<p>
+				If you are using an RSS reading application, your blog can be accessed via a link like 'http://myserver/myblog/?do=RSS'.  Here is a <a href='http:./?do=RSS'>link</a> to your current RSS
+			</p>
+			<p>
+				The <a href='http:./?do=RSS'><img src='app/media/rss.svg' alt='Rss' title='RSS link' style="width: 50px;" /></a> icon  is also a link to your blog's RSS
 			</p>
 		</article>
 		<article id='features'>
 			<ul>
-				<li>Block Users, IP addresses</li>
+				<li>Block Users and IP addresses</li>
 				<li>Ban Users</li>
 				<li>Allow User comments</li>
-				<li>Add a peronal profile page</li>
-				<li>Add links</li>
+				<li>Add a personal profile page</li>
+				<li>Add links, images, SVG's, etc.</li>
 				<li>Get mail when new comments posted</li>
-				<li>Add 'headline' pages, that appear on the menu, but not as a post</li>
-				<li>Login for users who post comments</li>
+				<li>Add 'headline' pages, that appear on the side menu, but not as a post</li>
+				<li>User authentication for comments</li>
 				<li>RSS feed dynamically created</li>
-				<li>WYSIWYG post entry (partially)</li>
-				<li>capcha</li>
+				<li>WYSIWYG editor</li>
+				<li>capcha type validation</li>
 			</ul>
 		</article>
-		<article id='blog_accessibility'>
+		<article id='remote_access'>
 			<h4>Local Network</h4>
 			<p>
 				If you would like to share this blog interface, make sure that your web browser is accessible over networks.
@@ -82,40 +92,37 @@
 			<p>
 				A more advanced way of setting up accessibility is to use a service like <a href='noip.com'>noip.com</a> that gives you a web URL name like '<i>janes_computer.no-ip.com</i>'.  If you give this link to a friend or make the link publically known, people will be able to access your website and your blog interface.  Note that most internet providers block homes from hosting web server on the standard port 80.  You should configure your home firewall to route a port such as 8001 to your webserver's port 80.  The web URL you get from noip.com will then have to have the port appended to it (e.g. http://janes_computer.no-ip.com:8001.  <b>DO NOT TRY THIS METHOD</b> unless you know how to secure your website and firewall.
 			</p>
+			<h4>Accessing via the Tor network using .onion addressing</h4>
+			<p>
+				If you are running a Tor server, you can configure it to pass .onion web requests to your blog system's web site.
+			</p>
+			<h4>Running your blog on a Raspberry Pi</h4>
+			<p>
+				Raspberry Pi's are extremely small computers.  Just connect one to your TV via HDMI and attach a mouse and keyboard, and you will be up and running.
+			</p>
+			<center><img src='app/media/raspberry_pi_zero.jpg' /></center>
+			<!-- https://pxhere.com/en/photo/1265058 -->
 			<h4>Cloud Server Hosted</h4>
 			<p>
 				Another method would be to install pBlog on a webserver running on a cloud server, such as AWS, Vultr, etc.</p>
 			</p>
-			<h4>Raspberry Pi Method</h4>
-			<center><img src='app/media/raspberry_pi_zero.jpg' /></center>
-			<!-- https://pxhere.com/en/photo/1265058 -->
-			<p>Another method would be to install pBlog on a webserver running on a Rasberry Pi</p>
+			<h4>Reddit</h4>
+			<p>
+				If the "Post to Reddit" feature is activated, a link will be visible on the side menu called "Post Current to Reddit".  Clicking on this lnk will send the URL of the page you are currently viewing on your blog, to Reddit.  For Reddit to accept your Blog URL, Reddit will require you to login and answer some questions pertaining to the URL you are sending Reddit.  After filling out the Reddit qeustions and clicking submit, Reddit, will add your blog content to it's system.
 			</p>
 		</article>
 		<article id='adding_images'>
-			Image URL's can be used to add images to your posts.
-			<br />
-			Put images you would like to use for blog posts in the media folder where the files for this blog server are located.  When adding an image, the path for the image is like the following:
-			<br />
-			<i>media/example.jpg</i>
-			<br />
-			Note that images must not have spaces in their names.
-		</article>
-		<article id='sharing_to_reddit'>
-			<h3>Sharing pBlog posts on Reddit</h3>
-			<h4>Reddit</h4>
+			<img src=app/media/blogging.jpg />
 			<p>
-				If this pBlog is accessible by others over the internet and the "Post to Reddit" feature is activated in your config.pl file, you can interact with Reddit, passing it the link to a post in your pBlog.  In pBlog find a post to share.  A link will be visible on the side menu called "Post Current to Reddit".  Clicking on this lnk will send the URL of the page you are currently viewing on your blog, to Reddit.  For Reddit to accept your Blog URL, Reddit will require you to login and answer some questions pertaining to the URL you are sending Reddit.  After filling out the Reddit qeustions and clicking submit, Reddit, will add your blog content to it's system.
-		</article>
-		<article id='markup'>
-			<h3>Markup Language</h3>
-			<code>
-			[url=googe.com,hi]googe.com[/url]<br />
-			[img]media/example.jpg[/img]
-			<p>
-				image files via url.  upload
+				Image URL's can be used to add images to your posts.
 			</p>
-			</code>
+			<p>
+				Put images you would like to use for blog posts in the "media" folder where the files for this blog server are located.  Then reference the image like the following:
+			</p>
+			<i>&lt;img src="media/blogging.jpg" /&gt;</i>
+			<p>
+				Note that images should not have spaces in their names.
+			</p>
 		</article>
 
 		<script>
