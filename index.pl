@@ -861,8 +861,8 @@ elsif(r('viewCat') ne '')
 			if($do == 1)
 			{
 				print '<div class="post posthighlevel">';
-				if ($#entries < 1 && $finalEntries[2] != '' )
-				{
+				#if ($#entries < 1 && $finalEntries[2] != '' )
+				#{
 					print '<div class="postinfo">
 						<i>Posted on '.$finalEntries[2].' in Category: <a href="?viewCat='.$finalEntries[3].'">'.$finalEntries[3].'</a>
 							<br />
@@ -872,7 +872,7 @@ elsif(r('viewCat') ne '')
 								<button onclick="window.location=\'?delete='.$finalEntries[4].'\'">Delete</button>-->
 							</div></i>
 					</div>';
-				}
+				#}
 
 				print '<h1><a href="?viewDetailed='.$finalEntries[4].'">'.$finalEntries[0].'</a></h1>
 					<div class="entry">'
@@ -944,7 +944,7 @@ elsif(r('edit') ne '')
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="Submit" value="Add / Edit Content" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" /></td>
+			<td><input type="submit" name="Submit" value="Edit Post" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" /></td>
 		</tr>
 	</table>
 	</form>
@@ -1259,18 +1259,10 @@ elsif(r('viewDetailed') ne '')
 			<form accept-charset="UTF-8"   name="submitform" method="post" style="margin-left: 2em;">
 				<input name="sendComment" value="'.$fileName.'" type="hidden" id="sendComment">
 				<input type="hidden" id="actual_content" name="content" />
-				<table style="width : 100%;">
-					<tr>
-						<td>Comment Title</td>
-						<td><input name="title" type="text" pattern=".{3,20}" required title="Must be at least 3 characters long" id="title"></td>
-					</tr>
-					<tr>
-					<td>Content<br /><a href="?do=showSmilies" target="_blank">Show Smilies</a></td>
-					<td>';
+						Comment Title: <input name="title" type="text" pattern=".{3,20}" required title="Must be at least 3 characters long" id="title"><br />
+					<!--<a href="?do=showSmilies" target="_blank">Show Smilies</a><br /> -->
+					';
 					printTextEditor('');
-					print '</td>
-				</tr>
-			<tr>';
 
 			if($config->{commentsSecurityCode} == 1)
 			{
@@ -1285,39 +1277,24 @@ elsif(r('viewDetailed') ne '')
 				}
 				$code =~ s/\.//;
 				$code =~ s/\///;
-				print '<td></td>
-				<td><font face="Verdana, Arial, Helvetica, sans-serif" size="2">'.$code.'</font><input name="originalCode" value="'.$code.'" type="hidden" id="originalCode"></td>
-				</tr>
-				<tr>
-				<td>Type  Code Above</td>
-				<td><input size="8" name="code" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="code"> &nbsp;  &nbsp;  &nbsp;  (Used to verify human)</td>
-				</tr>';
+				print '<br />
+				<font face="Verdana, Arial, Helvetica, sans-serif" size="2">'.$code.'</font><input name="originalCode" value="'.$code.'" type="hidden" id="originalCode"><br />
+				Type  Code Above: <input size="8" name="code" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="code"> &nbsp;  &nbsp;  &nbsp;  (Used to verify human)
+				';
 			}
 
-			print '<tr>
-				<td>'.$config->{commentsSecurityQuestion}.'</td>
-				<td><input size="8" name="question" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="question">
-				 &nbsp;  &nbsp;  &nbsp; (Get answer from admin)</td>
-				 </td>
-			</tr>
-			<tr>' if $config->{securityQuestionOnComments} == 1;
+			print '<br />
+				'.$config->{commentsSecurityQuestion}.'
+				<input size="8" name="question" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="question">
+				 &nbsp;  &nbsp;  &nbsp; (Get answer from admin)<br />
+				 ' if $config->{securityQuestionOnComments} == 1;
 
-			print '			<tr>
-				<td>Your Name</td>
-				<td><input size="8" name="author" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="author"></td>
-			</tr>
-			<tr>
-				<td>Your Password</td>
-				<td><input size="8" name="pass" type="password" id="pass"> &nbsp; &nbsp; &nbsp; (Created on first comment)</td>
-			</tr>
-			<tr>
-				<td>&nbsp;</td>
-				<td>
-					<input type="submit" name="Submit" value="Add Post" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" />
-				</td>
-			</tr>
-			</table>
-			</form>
+			print '<br />
+				Your Name
+				<input size="8" name="author" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="author"><br />
+				Your Password: <input size="8" name="pass" type="password" id="pass"> &nbsp; &nbsp; &nbsp; (Created on first comment)<br />
+				<input type="submit" name="Submit" value="Add Post" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" />
+				</form>
 			<script src="app/blog.js" type="text/javascript"></script>
 			</div>';
 		}
@@ -1833,8 +1810,8 @@ else
 					}
 
 					print '<div class="post posthighlevel">';
-					if ($#entries < 1 && $finalEntries[2] != '' )
-					{
+					#if ($#entries < 1 && $finalEntries[2] != '' )
+					#{
 						print '<div class="postinfo">
 							<i>Posted on '.$finalEntries[2].' in Category: <a href="?viewCat='.$finalEntries[3].'">'.$finalEntries[3].'</a>
 								<br />
@@ -1844,7 +1821,7 @@ else
 									<button onclick="window.location=\'?delete='.$finalEntries[4].'\'">Delete</button>-->
 								</div></i>
 						</div>';
-					}
+					#}
 					print '
 						<a href="?viewDetailed='.$finalEntries[4].'">
 						<h1>'.$finalEntries[0].'</h1>
