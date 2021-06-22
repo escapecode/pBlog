@@ -15,6 +15,7 @@ body {
 	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 	/*font-size: 12px;*/
 	color: #222222;
+	background-color: white;
 	background: -moz-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* ff3.6+ */
 	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(96,123,150,1))); /* safari4+,chrome */
 	background: -webkit-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* safari5.1+,chrome10+ */
@@ -22,6 +23,16 @@ body {
 	background: -ms-linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(96,123,150,1) 100%); /* ie10+ */
 	background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgb(232, 228, 228) 100%); /* w3c */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#607B96', endColorstr='#FFFFFF',GradientType=1 ); /* ie6-9 */
+}
+
+div#top a {
+	text-decoration: none;
+}
+
+button {
+/*
+	border: none;
+*/
 }
 
 h3, h2 {
@@ -36,6 +47,7 @@ div#top {
 	left: 0;
 	vertical-align: top;
 	height: 6em;
+	background-color: #95ADD5;
 	background: -moz-linear-gradient(90deg, rgba(96,123,150,1) 0%, rgba(96,123,150,0.92) 8%, rgba(255,255,255,0) 100%); /* ff3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(92%, rgba(96,123,150,0.92)), color-stop(100%, rgba(96,123,150,1))); /* safari4+,chrome */
 	background: -webkit-linear-gradient(90deg, rgba(96,123,150,1) 0%, rgba(96,123,150,0.92) 8%, rgba(255,255,255,0) 100%); /* safari5.1+,chrome10+ */
@@ -94,7 +106,7 @@ div#menu {
 }
 
 #menu h1 {
-	color: #5C5C5C;
+	color: #e48a8a;
 	padding: 0px;
 	margin-top: 10px;
 	margin-bottom: 0px;
@@ -136,14 +148,19 @@ div#content1 {
 
 
 #content h1 {
-	font-size: 16px;
+	font-size: 24px;
+	color: purple;
 	/* border-bottom: 1px solid darkblue; */
 	margin-bottom: 5px;
 	padding: 0px;
 	letter-spacing: 2px;
 	text-transform: capitalize;
-	text-align : center;
+	padding-left: 2em;
 	padding-bottom : .5em;
+}
+
+#content h2 {
+	font-size: 1em;
 }
 
 #content a {
@@ -155,7 +172,7 @@ div#content1 {
 div.post {
 	padding : 1em;
 	margin : 1em;
-	background-color: #D6D6FE;
+	background-color: #ececf0;
 	border : 1px solid black;
 	border-radius : 10px;
 }
@@ -226,6 +243,9 @@ div.comment > span {
 	top : 10px;
 	right : 10px;
 	text-align : right;
+	padding: 10px;
+	border: 1px solid white;
+	border-radius: 5px;
 }
 
 .postinfo > span, .comment > span {
@@ -245,6 +265,7 @@ div.comment > span {
     max-width: 30em;
     position: relative;
     margin-left: 7em;
+	margin-bottom: 1em;
 }
 
 .addcomment {

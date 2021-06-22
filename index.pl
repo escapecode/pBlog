@@ -53,7 +53,7 @@ sub basic_r
 	#s/\[i\](.+?)\[\/i\]/<i>$1<\/i>/gi;
 	#s/\[u\](.+?)\[\/u\]/<u>$1<\/u>/gi;
 	#s/\[\*\](.+?)\[\/\*\]/<li>$1<\/li>/gi;
-	#s/\[center\](.+?)\[\/center\]/<center>$1<\/center>/gi;
+	#s/\[center\](.+?)\[\/center\]/$1<\/center>/gi;
 	#s/\[url\](.+?)\[\/url\]/<a href=$1 target=_blank>$1<\/a>/gi;
 	#s/\[url=(.+?)\](.+?)\[\/url\]/<a href=$1 target=_blank>$2<\/a>/gi;
 	#s/\[img\](.+?)\[\/img\]/<img src=$1 \/>/gi;
@@ -354,8 +354,7 @@ if(r('do') eq 'RSS')
 }
 else
 {
-print header(-charset => qw(utf-8)), '<!DOCTYPE HTML PUBLIC -//W3C//DTD HTML 4.01 Transitional//EN
-http://www.w3.org/TR/html4/loose.dtd>
+print header(-charset => qw(utf-8)), '<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -416,14 +415,15 @@ http://www.w3.org/TR/html4/loose.dtd>
 	</script>
 	<link href='.$config->{currentStyleFolder}.'/style.css rel=stylesheet type=text/css>
 </head>
-<body">
+<body>
 	<div id=all>
 	<div id=top>
-		<img src="app/media/logo.png" style="position: absolute; left: 10px;"/><h2><center>'.$config->{metaDescription}.'</center></h2>
-		 <a style="padding-left: 200px;" href="about_me.html">About Me</a> - <a href="help.html">Help</a>
+		<img src="app/media/logo.png" style="position: absolute; left: 10px;"/>
+		<h2 style="margin-left: 10em;">'.$config->{metaDescription}.'</h2>
+		 <a style="padding-left: 200px;" href="about_me.html">About Me</a> &nbsp; - &nbsp; <a href="help.html">Help</a>
 		<div class="topbar">
-			<form accept-charset="UTF-8"   name="form1" method="post">
-				<input type="text" pattern=".{3,20}" required title="Must be at least 3 characters" name="keyword" placeholder="Search terms">
+			<form accept-charset="UTF-8" action="./" name="form1" method="post">
+				<input type="text" pattern=".{3,20}" required title="Must be at least 3 characters" name="keyword" placeholder="Search Terms">
 				<input type="hidden" name="do" value="search">
 				<input type="submit" name="Submit" value="Search"><br />
 				By Title <input name="by" type="radio" value="0" checked> By Content <input name="by" type="radio" value="1">
@@ -433,7 +433,7 @@ http://www.w3.org/TR/html4/loose.dtd>
 #if(($config->{showUsersOnline} == 1) || ($config->{showHits} == 1))
 #{
 	#print '<hr />
-	#<h1><center>Stats</center></h1>';
+	#<h1>Stats</h1>';
 #}
 	print '<span style="font-size: .8em;">';
 if($config->{showUsersOnline} == 1)
@@ -558,8 +558,8 @@ foreach(@pages)
 	print '<a href="?viewDetailed='.$fileName.'">'.$title.'</a>';
 }
 
-print '<h1><center>Categories</center></h1>';			# Show Categories on Menu	THIS IS THE MENU SECTION
-print '<a href=?page=1 >- All Categories  -</a>';
+print '<h1>Categories</h1>';			# Show Categories on Menu	THIS IS THE MENU SECTION
+print '<a href=?page=1 >- All  -</a>';
 my @categories = sort(getCategories());
 foreach(@categories)
 {
@@ -574,7 +574,7 @@ if($config->{showLatestComments} == 1)
 
 	if(scalar(@comments) > 0)
 	{
-		print '<hr /><h1><center>Latest Comments</center></h1>';
+		print '<hr /><h1>Latest Comments</h1>';
 	}
 
 	my $i = 0;
@@ -584,7 +584,9 @@ if($config->{showLatestComments} == 1)
 		if($i <= $config->{showLatestCommentsLimit})
 		{
 			my @entry = split(/~/, $_);
-			print '<a href="?viewDetailed='.$entry[4].'" title="Posted by '.$entry[1].'">'.$entry[0].'</a>';
+			my $shortentry = substr($entry[2], 0, 15);
+			$shortentry =~ s/<[^>]*>//;
+			print '<a href="?viewDetailed='.$entry[4].'" title="Posted by '.$entry[1].'">'.$shortentry.'...</a>';
 			$i++;
 		}
 	}
@@ -599,8 +601,8 @@ if($config->{allowCustomHTML} == 1)
 	print $config->{customHTML};
 }
 print '<hr />
-<a href=?do=archive style="float: left;">Archived Posts</a>
-<a href="?do=RSS" style="float: right;"><img src="app/media/rss.svg" alt="RSS feed link" width="25px;" /></a>
+<a href=?do=archive style="float: left;">Archived Posts</a><br />
+<a href="?do=RSS" style="float: left;"><img src="app/media/rss.svg" alt="RSS feed link" style="width: 25px;" /></a>
 <br style="clear: both;" />
 <hr />';
 
@@ -647,7 +649,7 @@ if(r('do') eq 'newEntry')
 	# Add Secure (This page will appear before the add one)
 
 	print '<h1>Adding Post...</h1>
-	<form accept-charset="UTF-8"   name="form1" method="post">
+	<form accept-charset="UTF-8" action="./" name="form1" method="post">
 		<table>
 			<tr>
 				<td>Admin Password:</td>
@@ -861,20 +863,21 @@ elsif(r('viewCat') ne '')
 			if($do == 1)
 			{
 				print '<div class="post posthighlevel">';
-				#if ($#entries < 1 && $finalEntries[2] != '' )
-				#{
+				if ($#entries < 1 && $finalEntries[2] != '' )
+				{
 					print '<div class="postinfo">
 						<i>Posted on '.$finalEntries[2].' in Category: <a href="?viewCat='.$finalEntries[3].'">'.$finalEntries[3].'</a>
 							<br />
 							<div class="right">
 								<button onclick="window.location=\'?viewDetailed='.$finalEntries[4].'\'">View Post</button>
-								<!--<button onclick="window.location=\'?edit='.$finalEntries[4].'\'">Edit</button>
-								<button onclick="window.location=\'?delete='.$finalEntries[4].'\'">Delete</button>-->
+								<!--<button onclick="window.location=\'?edit='.$finalEntries[4].'\'"><img src="edit.svg" description="edit" /></button>
+								<button onclick="window.location=\'?delete='.$finalEntries[4].'\'"><img src="delete.svg" description="delete" /></button>-->
 							</div></i>
 					</div>';
-				#}
+				}
 
-				print '<h1><a href="?viewDetailed='.$finalEntries[4].'">'.$finalEntries[0].'</a></h1>
+				print '<i style="margin: 1em; font-size : .9em; float: left">'.$finalEntries[2] . '</i>
+				<h1><a href="?viewDetailed='.$finalEntries[4].'">'.$finalEntries[0].'</a></h1>
 					<div class="entry">'
 						.$finalEntries[1].'
 					</div>
@@ -891,11 +894,11 @@ elsif(r('viewCat') ne '')
 	# Now i will display the pages
 	if($totalPages >= 1)
 	{
-		print '<center> Pages: ';
+		print 'Pages: ';
 	}
 	else
 	{
-		print '<center> No posts under this category.';
+		print 'No posts under this category.';
 	}
 
 	my $startPage = $page == 1 ? 1 : ($page-1);
@@ -926,7 +929,7 @@ elsif(r('viewCat') ne '')
 			}
 		}
 	}
-	print '</center>';
+	print '';
 }
 elsif(r('edit') ne '')
 {
@@ -934,7 +937,7 @@ elsif(r('edit') ne '')
 
 	my $fileName = r('edit');
 	print '<h1>Edit Post</h1>
-	<form accept-charset="UTF-8"   name="form1" method="post">
+	<form accept-charset="UTF-8" action="./" name="form1" method="post">
 	<table>
 		<tr>
 			<td>Admin Password</td>
@@ -944,7 +947,7 @@ elsif(r('edit') ne '')
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="Submit" value="Edit Post" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" /></td>
+			<td><input type="submit" name="Submit" value="Add / Edit Content" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" /></td>
 		</tr>
 	</table>
 	</form>
@@ -1149,7 +1152,7 @@ elsif(r('do') eq 'search')
 				$matches++;
 			}
 		}
-		print '<br /><center>'.$matches.' Matches Found.</center>';
+		print '<br />'.$matches.' Matches Found.';
 	}
 }
 elsif(r('viewDetailed') ne '')
@@ -1180,14 +1183,15 @@ elsif(r('viewDetailed') ne '')
 		my $title = $entry[0];
 		my $content = $entry[1];
 		my $category = $entry[3];
-		print '<i style="float : right; font-size : .8em;">'.$entry[2] . '</i>
+
+		print '<i style="margin: 1em; font-size : .9em; float: right;">'.$entry[2] . '</i>
 			<h1>'.$entry[0].'</h1>
 			<div class="postinfo" style="text-align : right;">
 				<i>Category: <a href="?viewCat='.$entry[3].'">'.$entry[3].'</a>
 				<br />
 				<div>
-					<button onclick="window.location=\'?edit='.$entry[4].'\'">Edit</button>
-					<button onclick="window.location=\'?delete='.$entry[4].'\'">Delete</button>
+					<button onclick="window.location=\'?edit='.$entry[4].'\'"><img src="edit.svg" description="edit" /></button>
+					<button onclick="window.location=\'?delete='.$entry[4].'\'"><img src="delete.svg" description="delete" /></button>
 				</div>
 			</div>
 			'.$entry[1].'<br /><br />
@@ -1207,7 +1211,8 @@ elsif(r('viewDetailed') ne '')
 		}
 		close FILE;
 
-		print '<h1>Comments For This Post:</h1>
+		print '<hr />';
+		print '<h2>Comments</h2>
 			<button style="float: right;" onclick="document. getElementsByClassName(\'addcomment\')[0].style.display =\'block\';">Add comment</button>
 			<br />
 		';
@@ -1233,8 +1238,8 @@ elsif(r('viewDetailed') ne '')
 				my $content = $comment[2];
 				my $date = $comment[3];
 				print '<div class="comment">
-				<span style="font-size : .8em; float: right;">By <b>'.$author.'</b> - <i>'.$date.'</i></span>
-				<span><b>'.$title.'</b></span>
+				<!-- <h2>'.$title.'</h2> -->
+				<span style="font-size : .8em;">By <b>'.$author.'</b> - <i style="float: right;">'.$date.'</i></span>
 				<br />
 				<br />';
 				#if($config->{bbCodeOnCommentaries} == 0)
@@ -1255,14 +1260,25 @@ elsif(r('viewDetailed') ne '')
 		# Add comment form
 		if($config->{allowComments} == 1)
 		{
-			print '<br /><br /><div class="addcomment"><h1 style="text-align: right;">Add Comment</h1>
+			print '<br /><br /><div class="addcomment"><h1 style="text-align: center;">Add Comment</h1>
 			<form accept-charset="UTF-8"   name="submitform" method="post" style="margin-left: 2em;">
 				<input name="sendComment" value="'.$fileName.'" type="hidden" id="sendComment">
 				<input type="hidden" id="actual_content" name="content" />
-						Comment Title: <input name="title" type="text" pattern=".{3,20}" required title="Must be at least 3 characters long" id="title"><br />
-					<!--<a href="?do=showSmilies" target="_blank">Show Smilies</a><br /> -->
-					';
+				<input type="hidden" name="title" value="no title" />
+				<table style="width : 100%;">
+					<!--
+					<tr>
+						<td>Comment Title</td>
+						<td><input name="title" type="text" pattern=".{3,20}" required title="Must be at least 3 characters long" id="title"></td>
+					</tr>
+					-->
+					<tr>
+					<td>Comment<br /><a href="?do=showSmilies" target="_blank">Show Smilies</a></td>
+					<td>';
 					printTextEditor('');
+					print '</td>
+				</tr>
+			<tr>';
 
 			if($config->{commentsSecurityCode} == 1)
 			{
@@ -1277,24 +1293,39 @@ elsif(r('viewDetailed') ne '')
 				}
 				$code =~ s/\.//;
 				$code =~ s/\///;
-				print '<br />
-				<font face="Verdana, Arial, Helvetica, sans-serif" size="2">'.$code.'</font><input name="originalCode" value="'.$code.'" type="hidden" id="originalCode"><br />
-				Type  Code Above: <input size="8" name="code" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="code"> &nbsp;  &nbsp;  &nbsp;  (Used to verify human)
-				';
+				print '<td></td>
+				<td><font face="Verdana, Arial, Helvetica, sans-serif" size="2">'.$code.'</font><input name="originalCode" value="'.$code.'" type="hidden" id="originalCode"></td>
+				</tr>
+				<tr>
+				<td>Type  Code Above</td>
+				<td><input size="8" name="code" type="text" value="" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="code"> &nbsp;  &nbsp;  &nbsp;  (Used to verify human)</td>
+				</tr>';
 			}
 
-			print '<br />
-				'.$config->{commentsSecurityQuestion}.'
-				<input size="8" name="question" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="question">
-				 &nbsp;  &nbsp;  &nbsp; (Get answer from admin)<br />
-				 ' if $config->{securityQuestionOnComments} == 1;
+			print '<tr>
+				<td>'.$config->{commentsSecurityQuestion}.'</td>
+				<td><input size="8" name="question" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="question">
+				 &nbsp;  &nbsp;  &nbsp; (Get answer from admin)</td>
+				 </td>
+			</tr>
+			<tr>' if $config->{securityQuestionOnComments} == 1;
 
-			print '<br />
-				Your Name
-				<input size="8" name="author" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="author"><br />
-				Your Password: <input size="8" name="pass" type="password" id="pass"> &nbsp; &nbsp; &nbsp; (Created on first comment)<br />
-				<input type="submit" name="Submit" value="Add Post" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" />
-				</form>
+			print '			<tr>
+				<td>Your Name</td>
+				<td><input size="8" name="author" type="text" pattern="([A-Za-z0-9]){3,20}" required title="Must be at least 3 characters long (only letters and numbers)" id="author"></td>
+			</tr>
+			<tr>
+				<td>Your Password</td>
+				<td><input size="8" name="pass" type="password" id="pass"> &nbsp; &nbsp; &nbsp; (Created on first comment)</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>
+					<input type="submit" name="Submit" value="Add Post" onclick="document.getElementById(\'actual_content\').value = document.getElementById(\'content1\').innerHTML;" />
+				</td>
+			</tr>
+			</table>
+			</form>
 			<script src="app/blog.js" type="text/javascript"></script>
 			</div>';
 		}
@@ -1379,10 +1410,11 @@ elsif(r('sendComment') ne '')
 			if($author eq $data[0])
 			{
 				$hasPosted = 1;
-				if(crypt($pass, $config->{randomString}) ne $data[1])
+				if(crypt($pass, $config->{randomString}).'"' ne $data[1])
 				{
 					$do = 0;
 					print 'The username '.$author.' is already taken and that password is incorrect. Please choose other author or try again.';
+					print ''.$author.'!<br /><a href="?viewDetailed='.$fileName.'">Go Back</a>';
 				}
 				last;
 			}
@@ -1392,7 +1424,7 @@ elsif(r('sendComment') ne '')
 	if($hasPosted == 0)
 	{
 		open(FILE, ">>$config->{commentsDatabaseFolder}/users.$config->{dbFilesExtension}.dat");
-		print FILE $author."'".crypt($pass, $config->{randomString}).'"';
+		print FILE "~".$author."'".crypt($pass, $config->{randomString}).'"';
 		close FILE;
 		print 'Your first comment was added.  The name and password you entered will be remembered.  Please use this same name and password when creating future comments.<br>';
 	}
@@ -1424,7 +1456,7 @@ elsif(r('sendComment') ne '')
 				print FILE $content;
 				close FILE;
 
-				print 'Comment added. Thanks '.$author.'!<br /><center><a href="?viewDetailed='.$fileName.'">Go Back</a></center>';
+				print 'Comment added. Thanks '.$author.'!<br /><a href="?viewDetailed='.$fileName.'">Go Back</a>';
 
 				# If Comment Send Mail is active
 				if($config->{sendMailWithNewComment} == 1)
@@ -1447,7 +1479,7 @@ elsif(r('deleteComment') ne '')
 
 	my $data = r('deleteComment');
 
-	print '<h1>Deelte Comment</h1>
+	print '<h1>Delete Comment</h1>
 	<form accept-charset="UTF-8"   name="form1" method="post">
 	<table>
 	<td>Admin Password</td>
@@ -1633,9 +1665,10 @@ elsif(r('do') eq 'listComments')
 		print '<table width="100%">
 		<thead>
 			<tr>
-				<th><i>Title</i></th>
+				<!--<th><i>Title</i></th>-->
 				<th>Date</th>
 				<th><i>Author</i></th>
+				<th>Comment</th>
 			</tr>
 		</thead>
 		<tbody>';
@@ -1662,17 +1695,21 @@ elsif(r('do') eq 'listComments')
 
 			if($do == 1)
 			{
+				my $shortentry = substr($finalEntries[2], 0, 15);
+				$shortentry =~ s/<[^>]*>//;
+
 				print '<tr>
-				<td><a href="?viewDetailed='.$finalEntries[4].'">'.$finalEntries[0].'</a></td>
-				<td> '.$finalEntries[3].'</td>
-				<td style="text-transform: capitalize;"><b>'.$finalEntries[1].'</b></td>
+					<!--<td><a href="?viewDetailed='.$finalEntries[4].'">'.$finalEntries[0].'</a></td>-->
+					<td> '.$finalEntries[3].'</td>
+					<td style="text-transform: capitalize;"><b>'.$finalEntries[1].'</b></td>
+					<td>'.$shortentry.'</td>
 				</tr>';
 			}
 		}
 		$i++;
 	}
 	# Now i will display the pages
-	print '</tbody></table><center> Pages: ' if scalar(@comments) > 0;
+	print '</tbody></table> Pages: ' if scalar(@comments) > 0;
 	my $startPage = $page == 1 ? 1 : ($page-1);
 	my $displayed = 0;
 	for(my $i = $startPage; $i <= (($page-1)+$config->{maxPagesDisplayed}); $i++)
@@ -1701,7 +1738,7 @@ elsif(r('do') eq 'listComments')
 			}
 		}
 	}
-	print '</center>';
+	print '';
 }
 elsif(r('do') eq 'showSmilies')
 {
@@ -1809,19 +1846,25 @@ else
 						}
 					}
 
-					print '<div class="post posthighlevel">';
-					#if ($#entries < 1 && $finalEntries[2] != '' )
-					#{
+					my $autoheight = "";
+					if ($finalEntries[6] == "")
+					{
+						$autoheight = 'style="height: auto !important;"';
+					}
+
+					print '<div class="post posthighlevel" ' . $autoheight . '>';
+					if ($#entries < 1 && $finalEntries[2] != '' )
+					{
 						print '<div class="postinfo">
 							<i>Posted on '.$finalEntries[2].' in Category: <a href="?viewCat='.$finalEntries[3].'">'.$finalEntries[3].'</a>
 								<br />
 								<div class="right">
 									<button onclick="window.location=\'?viewDetailed='.$finalEntries[4].'\'">View Post</button>
-									<!--<button onclick="window.location=\'?edit='.$finalEntries[4].'\'">Edit</button>
-									<button onclick="window.location=\'?delete='.$finalEntries[4].'\'">Delete</button>-->
+									<!--<button onclick="window.location=\'?edit='.$finalEntries[4].'\'"><img src="edit.svg" description="edit" /></button>
+									<button onclick="window.location=\'?delete='.$finalEntries[4].'\'"><img src="delete.svg" description="delete" /></button>-->
 								</div></i>
 						</div>';
-					#}
+					}
 					print '
 						<a href="?viewDetailed='.$finalEntries[4].'">
 						<h1>'.$finalEntries[0].'</h1>
@@ -1840,7 +1883,7 @@ else
 			$i++;
 		}
 		# Now i will display the pages
-		print '<center> Pages: ';
+		print ' Pages: ';
 		my $startPage = $page == 1 ? 1 : ($page-1);
 		my $displayed = 0;
 		for(my $i = $startPage; $i <= (($page-1)+$config->{maxPagesDisplayed}); $i++)
@@ -1869,7 +1912,7 @@ else
 				}
 			}
 		}
-		print '</center>';
+		print '';
 	}
 	else
 	{
@@ -1877,5 +1920,5 @@ else
 	}
 }
 my $year = 1900 + (localtime)[5];
-print '</div><div id="footer">Copyright '.$config->{blogTitle}.' '.$year.' - All Rights Reserved - Powered by <a href="http://pplog.infogami.com/">pBlog</a>'; print '<br>All posts are using GMT '.$config->{gmt} if $config->{showGmtOnFooter} == 1; print '</div></div></body></html>';
+print '<hr /></div><div id="footer">Copyright '.$config->{blogTitle}.' '.$year.' - All Rights Reserved - Powered by <a href="http://pplog.infogami.com/">pBlog</a>'; print '<br>All posts are using GMT '.$config->{gmt} if $config->{showGmtOnFooter} == 1; print '</div></div></body></html>';
 }

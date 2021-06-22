@@ -3,6 +3,8 @@
 		<link href="app/style.css" rel="stylesheet" type="text/css">
 		<link rel='shortcut icon' 				type='image/png' href='favicon.png' />
 
+		<title>Blog System Help</title>
+
 		<style>
 			aside {
 				width: 10em;
@@ -38,13 +40,13 @@
 			<h3>Menu</h3>
 			<span onclick="showArticle('intro');">Overview</span><br />
 			<span onclick="showArticle('features');">Features</span><br />
-			<span onclick="showArticle('remote_access');">Remote Access</span><br />
+			<span onclick="showArticle('remote_access');">Accessing</span><br />
 			<span onclick="showArticle('adding_images');">Adding Images</span><br />
 		</aside>
 		<article id='intro'>
 			<h4>What is a Blog</h4>
 			<p>
-				<i>Blog</i> is short for "<i>web log</i>" and is a way to write about, journal, etc. on any topic.  Blogs are accessible with a web browser.
+				<i>Blog</i> is short for "<i>web log</i>" and is a way to write about, journal, etc. on any topic.  Blogs are accessible with a web browser.  People sometimes blog on other sites such as blogger and facebook
 			</p>
 			<h4>Why blog</h4>
 			<p>
@@ -58,7 +60,7 @@
 			</p>
 			<h4>What are archives</h4>
 			<p>
-				Entries that are older than 1 year are said to be archived
+				Entries that are older than 1 year are said to be archived.  They are not accessible with your regular posts anymore..  They are not accessed via Archived Posts
 			</p>
 			<h4>Access via RSS</h4>
 			<p>
@@ -96,6 +98,10 @@
 			<p>
 				If you are running a Tor server, you can configure it to pass .onion web requests to your blog system's web site.
 			</p>
+			<h4>Accessing via IPFS network</h4>
+			<p>
+				If you are running IPFS, dWeb, web3, etc., you can add your RSS page.  Make sure you use your peerId ID, since a file ID will be different everytime you modify a file
+			</p>
 			<h4>Running your blog on a Raspberry Pi</h4>
 			<p>
 				Raspberry Pi's are extremely small computers.  Just connect one to your TV via HDMI and attach a mouse and keyboard, and you will be up and running.
@@ -114,9 +120,10 @@
 		<article id='adding_images'>
 			<img src=app/media/blogging.jpg />
 			<p>
-				Image URL's can be used to add images to your posts.
+				Typically images are added via the Image Upload button
 			</p>
 			<p>
+				If you would like to add images manually, image URL's can be used to add images to your posts.
 				Put images you would like to use for blog posts in the "media" folder where the files for this blog server are located.  Then reference the image like the following:
 			</p>
 			<i>&lt;img src="media/blogging.jpg" /&gt;</i>
